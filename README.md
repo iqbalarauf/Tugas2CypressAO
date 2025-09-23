@@ -1,6 +1,10 @@
 # Cypress Automation - Tugas 2
 
+Nama Peserta: Iqbal Abdul Rauf
+<br>
+<br>
 Repository ini merupakan pengerjaan tugas 2 API Automation untuk kelas Bootcamp Cypress Automation Testing.
+<br>
 Lakukan penyalinan repo ini dengan langkah berikut:
 
 ## Proses Instalasi
@@ -55,4 +59,6 @@ npx cypress open
 ```
 
 ## Instalasi Environment
-Lakukan penyalinan pada file .env.example. Ubah nama file tersebut menjadi .env
+Lakukan penyalinan pada file .env.example.
+<br>
+Ubah nama file tersebut menjadi .env
