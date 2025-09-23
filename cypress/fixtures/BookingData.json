@@ -1,0 +1,11 @@
+{
+  "firstname": "Greesella",
+  "lastname": "Adhalia",
+  "totalprice": 1500000,
+  "depositpaid": true,
+  "bookingdates": {
+    "checkin": "2025-10-01",
+    "checkout": "2025-10-05"
+  },
+  "additionalneeds": "Breakfast"
+}
