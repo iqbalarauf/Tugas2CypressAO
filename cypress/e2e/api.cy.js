@@ -1,14 +1,14 @@
 // Iqbal Abdul Rauf
-
-describe('API Testing with Cypress', () => {
+describe('API Testing', () => {
     let token, bookingId;
     let bookingData;
 
     const username = Cypress.env('username');
     const password = Cypress.env('password');
+    const url = Cypress.env('apiUrl');
 
     it('POST - Create Auth', () => {
-        cy.request('POST', '/auth', {
+        cy.request('POST', `${url}/auth`, {
             username: username,
             password: password,
         }).then((response) => {
@@ -23,7 +23,7 @@ describe('API Testing with Cypress', () => {
             bookingData = data;
             cy.request({
                 method: 'POST',
-                url: '/booking',
+                url: `${url}/booking`,
                 headers: {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json',
@@ -38,16 +38,16 @@ describe('API Testing with Cypress', () => {
         });
     });
     it('GET - Get Booking', () => {
-        cy.request('GET', `/booking/${bookingId}`).then((response) => {
+        cy.request('GET', `${url}/booking/${bookingId}`).then((response) => {
             expect(response.status).to.eq(200)
             expect(response.body.firstname).to.eq(bookingData.firstname);
             expect(response.body.lastname).to.eq(bookingData.lastname);
         })
     });
-    it('DELETE - Delete Booking', () => {
+    it('DELETE - Delete Booking',{baseUrl: Cypress.env('apiUrl')}, () => {
         cy.request({
             method: 'DELETE',
-            url: `/booking/${bookingId}`,
+            url: `${url}/booking/${bookingId}`,
             headers: {
                 'Content-Type': 'application/json',
                 'Cookie': `token=${token}`
