@@ -27,8 +27,9 @@
 Cypress.Commands.add('login', (username, password) => {
     cy.session([username, password], () => {
         cy.visit(`/`)
-        cy.get(':nth-child(2) > .oxd-input-group > :nth-child(2) > .oxd-input').type('Admin')
-        cy.get(':nth-child(3) > .oxd-input-group > :nth-child(2) > .oxd-input').type('admin123')
+        cy.wait(2000)
+        cy.get(':nth-child(2) > .oxd-input-group > :nth-child(2) > .oxd-input').type(username)
+        cy.get(':nth-child(3) > .oxd-input-group > :nth-child(2) > .oxd-input').type(password)
         cy.get('.oxd-button').click()
         cy.url().should('include', 'dashboard')
     })
